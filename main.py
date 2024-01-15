@@ -42,7 +42,7 @@ class CSVTransformer:
 
         return 0.0
 
-    def clean_data(self, df):
+    def transform_columns(self, df):
         date_columns = [
             "completeBeforeTime",
             "completeAfterTime",
@@ -93,7 +93,7 @@ class CSVTransformer:
             base_filename = os.path.basename(filename)
             month_year = self.extract_month_year_from_filename(filename)
 
-            df = self.clean_data(df)
+            df = self.transform_columns(df)
 
             df["Filename"] = base_filename
             df["Month/Year"] = month_year
